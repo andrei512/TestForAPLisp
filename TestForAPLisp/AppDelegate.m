@@ -10,10 +10,38 @@
 
 #import "ViewController.h"
 
+#import <APLisp.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSArray *users = @[
+        @{
+            @"name" : @"Andrei",
+            @"age" : @22,
+            @"id" : @"1"
+        },
+        @{
+            @"name" : @"Silviu",
+            @"age" : @23,
+            @"id" : @"2"
+        },
+        @{
+            @"name" : @"Bogdan",
+            @"age" : @28,
+            @"id" : @"3"
+        }
+    ];
+    
+    NSArray *names = kollect(users, ^{
+        ret(this[@"name"])
+    });
+    
+    PO(names)
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
